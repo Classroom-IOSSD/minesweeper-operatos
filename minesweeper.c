@@ -28,14 +28,14 @@
 #define CHECK_MODE 2
 #define TRUE 1
 #define FALSE 0
-/// location of cursor
-int cursorPos_X;
+
+int cursorPos_X; // location of cursor
 int cursorPos_Y;
 unsigned char arrGameboard[GAME_TABLE_LENGTH][GAME_TABLE_LENGTH];// game table
-int nMines;
-int game_mode;
+int nMines; // number of remaining mine
+int game_mode; // flag: input mode = 0, flag mode = 1, check mode = 2
 
-int ShowGameEnd(int isWin);
+int ShowGameEnd(int isWin); 
 int uncover_blank_cell(int row, int col);
 void PrintGameBoard();
 void initGame(int minesNum);
@@ -136,7 +136,7 @@ void PrintGameBoard() {
 void initGame(int minesNum)
 {
 	int i,j,value, rows[8], columns[8];
-	game_mode = INPUT_MODE; // flag: input mode = 0, flag mode = 1, check mode = 2
+	game_mode = INPUT_MODE; 
 	nMines = minesNum; // the number of mines
 	cursorPos_Y = 0;
 	cursorPos_X = 0; // setting cursor
@@ -343,6 +343,5 @@ int main(int argc, char *argv[]) {
     }
 
     printf("See you next time!\n");
-
     return 0;
 }
